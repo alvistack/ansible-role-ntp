@@ -36,13 +36,13 @@
       service:
         name: "ntp"
         state: "started"
-      when: "{{ ansible_os_distribution | lower }} == 'ubuntu'"
+      when: ansible_distribution | lower == 'ubuntu'
 
     - name: start service
       service:
         name: "ntpd"
         state: "started"
-      when: "{{ ansible_os_distribution | lower }} == 'centos'"
+      when: ansible_distribution | lower == 'centos'
 
     - name: ntpq -p
       shell: |
