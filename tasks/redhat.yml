@@ -13,3 +13,22 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+
+- name: yum install
+  yum:
+    name: "{{ item.name }}"
+    state: "{{ item.state }}"
+  with_items: "{{ _yum }}"
+  tags: ntp
+
+- name: yum -y clean all
+  shell: |
+    yum -y clean all
+  changed_when: false
+  tags: ntp
+
+- name: enable service
+  service:
+    name: "ntpd"
+    enabled: "yes"
+  tags: ntp
