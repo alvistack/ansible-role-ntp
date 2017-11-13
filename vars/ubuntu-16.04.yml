@@ -18,11 +18,11 @@ _apt: [
   { state: "latest", name: "ntp" },
 ]
 
-_ntp_driftfile: "/var/lib/ntp/ntp.drift"
-_ntp_server: [
-  "0.ubuntu.pool.ntp.org iburst",
-  "1.ubuntu.pool.ntp.org iburst",
-  "2.ubuntu.pool.ntp.org iburst",
-  "3.ubuntu.pool.ntp.org iburst",
-  "ntp.ubuntu.com",
+_ntp__driftfile: "/var/lib/ntp/ntp.drift"
+_ntp__configuration_commands: [
+  "pool 0.ubuntu.pool.ntp.org iburst",
+  "pool 1.ubuntu.pool.ntp.org iburst",
+  "pool 2.ubuntu.pool.ntp.org iburst",
+  "pool 3.ubuntu.pool.ntp.org iburst",
+  "pool ntp.ubuntu.com",
 ]
