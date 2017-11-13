@@ -25,3 +25,10 @@ _ntp__configuration_commands: [
   "server 2.centos.pool.ntp.org iburst",
   "server 3.centos.pool.ntp.org iburst",
 ]
+_ntp__access_control_commands: [
+  "restrict -4 default kod notrap nomodify nopeer noquery limited",
+  "restrict -6 default kod notrap nomodify nopeer noquery limited",
+  "restrict 127.0.0.1",
+  "restrict ::1",
+  "restrict source notrap nomodify noquery",
+]
