@@ -1,9 +1,9 @@
 # {{ ansible_managed }}
 
-driftfile {{ ntp_driftfile }}
+driftfile {{ ntp__driftfile }}
 
 # Enable this if you want statistics to be logged.
-statsdir {{ ntp_statsdir }}
+statsdir {{ ntp__statsdir }}
 
 statistics loopstats peerstats clockstats
 filegen loopstats file loopstats type day enable
@@ -11,13 +11,13 @@ filegen peerstats file peerstats type day enable
 filegen clockstats file clockstats type day enable
 
 # Specify one or more NTP servers.
-{% for server in ntp_server %}
-server {{ server }}
+{% for command in ntp__configuration_commands %}
+{{ command | regex_search('^(pool|server|peer|broadcast|manycastclient).*$') }}
 {% endfor %}
 
 # Access control configuration.
-{% for restrict in ntp_restrict %}
-restrict {{ restrict }}
+{% for command in ntp__access_control_commands %}
+{{ command | regex_search('^(discard|restrict).*$') }}
 {% endfor %}
 
 # Disable the monitoring facility to prevent amplification attacks using ntpdc

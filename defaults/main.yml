@@ -14,13 +14,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-ntp_driftfile: "{{ _ntp_driftfile }}"
-ntp_statsdir: "/var/log/ntpstats"
-ntp_server: "{{ _ntp_server }}"
-ntp_restrict: [
-  "-4 default kod notrap nomodify nopeer noquery limited",
-  "-6 default kod notrap nomodify nopeer noquery limited",
-  "127.0.0.1",
-  "::1",
-  "source notrap nomodify noquery",
+ntp__driftfile: "{{ _ntp__driftfile }}"
+ntp__statsdir: "/var/log/ntpstats"
+ntp__configuration_commands: "{{ _ntp__configuration_commands }}"
+ntp__access_control_commands: [
+  "restrict -4 default kod notrap nomodify nopeer noquery limited",
+  "restrict -6 default kod notrap nomodify nopeer noquery limited",
+  "restrict 127.0.0.1",
+  "restrict ::1",
+  "restrict source notrap nomodify noquery",
 ]
