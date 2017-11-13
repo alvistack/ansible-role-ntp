@@ -20,9 +20,15 @@ _apt: [
 
 _ntp__driftfile: "/var/lib/ntp/ntp.drift"
 _ntp__configuration_commands: [
-  "server 0.ubuntu.pool.ntp.org iburst",
-  "server 1.ubuntu.pool.ntp.org iburst",
-  "server 2.ubuntu.pool.ntp.org iburst",
-  "server 3.ubuntu.pool.ntp.org iburst",
+  "server 0.ubuntu.pool.ntp.org",
+  "server 1.ubuntu.pool.ntp.org",
+  "server 2.ubuntu.pool.ntp.org",
+  "server 3.ubuntu.pool.ntp.org",
   "server ntp.ubuntu.com",
+]
+_ntp__access_control_commands: [
+  "restrict -4 default kod notrap nomodify nopeer noquery",
+  "restrict -6 default kod notrap nomodify nopeer noquery",
+  "restrict 127.0.0.1",
+  "restrict ::1",
 ]

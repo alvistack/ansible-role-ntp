@@ -26,3 +26,10 @@ _ntp__configuration_commands: [
   "pool 3.ubuntu.pool.ntp.org iburst",
   "pool ntp.ubuntu.com",
 ]
+_ntp__access_control_commands: [
+  "restrict -4 default kod notrap nomodify nopeer noquery limited",
+  "restrict -6 default kod notrap nomodify nopeer noquery limited",
+  "restrict 127.0.0.1",
+  "restrict ::1",
+  "restrict source notrap nomodify noquery",
+]

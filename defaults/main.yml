@@ -28,10 +28,4 @@ ntp__configuration_commands: "{{ _ntp__configuration_commands }}"
 
 # The ntpd(8) daemon implements a general purpose address/mask based
 # restriction list.
-ntp__access_control_commands: [
-  "restrict -4 default kod notrap nomodify nopeer noquery limited",
-  "restrict -6 default kod notrap nomodify nopeer noquery limited",
-  "restrict 127.0.0.1",
-  "restrict ::1",
-  "restrict source notrap nomodify noquery",
-]
+ntp__access_control_commands: "{{ _ntp__access_control_commands }}"
