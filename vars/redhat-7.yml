@@ -18,14 +18,14 @@ _yum: [
   { state: "latest", name: "ntp" },
 ]
 
-_ntp__driftfile: "/var/lib/ntp/drift"
-_ntp__configuration_commands: [
+_ntp_driftfile: "/var/lib/ntp/drift"
+_ntp_configuration_commands: [
   "server 0.centos.pool.ntp.org iburst",
   "server 1.centos.pool.ntp.org iburst",
   "server 2.centos.pool.ntp.org iburst",
   "server 3.centos.pool.ntp.org iburst",
 ]
-_ntp__access_control_commands: [
+_ntp_access_control_commands: [
   "restrict -4 default kod notrap nomodify nopeer noquery limited",
   "restrict -6 default kod notrap nomodify nopeer noquery limited",
   "restrict 127.0.0.1",

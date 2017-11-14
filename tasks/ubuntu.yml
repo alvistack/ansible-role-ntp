@@ -55,7 +55,7 @@
     mode: "{{ item.mode }}"
     state: "{{ item.state }}"
   with_items:
-    - { dest: "{{ ntp__statsdir }}", owner: "ntp", group: "ntp", mode: "0755", state: "directory" }
+    - { dest: "{{ ntp_statsdir }}", owner: "ntp", group: "ntp", mode: "0755", state: "directory" }
     - { dest: "/run/lock", owner: "root", group: "root", mode: "0755", state: "directory" }
   tags: ntp
 
