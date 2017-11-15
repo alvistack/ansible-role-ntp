@@ -2,8 +2,8 @@ Ansible Role for NTP
 ====================
 
 [![Travis](https://img.shields.io/travis/alvistack/ansible-role-ntp.svg)](https://travis-ci.org/alvistack/ansible-role-ntp)
-[![GitHub release](https://img.shields.io/ntphub/release/alvistack/ansible-role-ntp.svg)](https://ntphub.com/alvistack/ansible-role-ntp)
-[![GitHub license](https://img.shields.io/ntphub/license/alvistack/ansible-role-ntp.svg)](https://ntphub.com/alvistack/ansible-role-ntp/blob/master/LICENSE)
+[![GitHub release](https://img.shields.io/github/release/alvistack/ansible-role-ntp.svg)](https://github.com/alvistack/ansible-role-ntp)
+[![GitHub license](https://img.shields.io/github/license/alvistack/ansible-role-ntp.svg)](https://github.com/alvistack/ansible-role-ntp/blob/master/LICENSE)
 [![Ansible Role](https://img.shields.io/badge/galaxy-alvistack.ntp-blue.svg)](https://galaxy.ansible.com/alvistack/ntp)
 
 Ansible Role for NTP Management.
@@ -41,5 +41,5 @@ Author Information
 
 -   Wong Hoi Sing Edison
     -   <https://twitter.com/hswong3i>
-    -   <https://ntphub.com/hswong3i>
+    -   <https://github.com/hswong3i>
 
