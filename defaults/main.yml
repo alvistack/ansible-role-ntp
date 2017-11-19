@@ -16,16 +16,16 @@
 
 # This command specifies the complete path and name of the file used to record
 # the frequency of the local clock oscillator.
-ntp__driftfile: "{{ _ntp__driftfile }}"
+ntp_driftfile: "{{ _ntp_driftfile }}"
 
 # Indicates the full path of a directory where statistics files should be
 # created.
-ntp__statsdir: "/var/log/ntpstats"
+ntp_statsdir: "/var/log/ntpstats"
 
 # The various modes are determined by the command keyword and the type of the
 # required IP address.
-ntp__configuration_commands: "{{ _ntp__configuration_commands }}"
+ntp_configuration_commands: "{{ _ntp_configuration_commands }}"
 
 # The ntpd(8) daemon implements a general purpose address/mask based
 # restriction list.
-ntp__access_control_commands: "{{ _ntp__access_control_commands }}"
+ntp_access_control_commands: "{{ _ntp_access_control_commands }}"

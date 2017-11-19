@@ -35,7 +35,7 @@
     mode: "{{ item.mode }}"
     state: "{{ item.state }}"
   with_items:
-    - { dest: "{{ ntp__statsdir }}", owner: "ntp", group: "ntp", mode: "0755", state: "directory" }
+    - { dest: "{{ ntp_statsdir }}", owner: "ntp", group: "ntp", mode: "0755", state: "directory" }
   tags: ntp
 
 - name: copy templates

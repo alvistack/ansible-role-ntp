@@ -18,15 +18,15 @@ _apt: [
   { state: "latest", name: "ntp" },
 ]
 
-_ntp__driftfile: "/var/lib/ntp/ntp.drift"
-_ntp__configuration_commands: [
+_ntp_driftfile: "/var/lib/ntp/ntp.drift"
+_ntp_configuration_commands: [
   "pool 0.ubuntu.pool.ntp.org iburst",
   "pool 1.ubuntu.pool.ntp.org iburst",
   "pool 2.ubuntu.pool.ntp.org iburst",
   "pool 3.ubuntu.pool.ntp.org iburst",
   "pool ntp.ubuntu.com",
 ]
-_ntp__access_control_commands: [
+_ntp_access_control_commands: [
   "restrict -4 default kod notrap nomodify nopeer noquery limited",
   "restrict -6 default kod notrap nomodify nopeer noquery limited",
   "restrict 127.0.0.1",
