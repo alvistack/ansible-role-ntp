@@ -16,6 +16,8 @@
 
 _apt: [
   { state: "latest", name: "ntp" },
+  { state: "latest", name: "systemd" },
+  { state: "latest", name: "systemd-sysv" },
 ]
 
 _ntp_driftfile: "/var/lib/ntp/ntp.drift"
