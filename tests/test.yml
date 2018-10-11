@@ -35,14 +35,19 @@
     - name: start service (Ubuntu)
       shell: |
         service ntp start
+      args:
+        warn: false
       register: service_start_result
       changed_when: service_start_result.rc != 0
       when: ansible_distribution | lower == 'ubuntu'
 
     - name: start service (CentOS)
-      service:
-        name: "ntpd"
-        state: "started"
+      shell: |
+        service ntpd start
+      args:
+        warn: false
+      register: service_start_result
+      changed_when: service_start_result.rc != 0
       when: ansible_distribution | lower == 'centos'
 
     - name: ntpq -p
