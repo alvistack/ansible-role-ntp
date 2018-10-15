@@ -52,7 +52,7 @@
 
 - name: enable service
   shell: |
-    systemctl enable ntp
+    systemctl --force enable ntp
   args:
     warn: false
   register: systemctl_enable_result

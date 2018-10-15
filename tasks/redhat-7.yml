@@ -45,7 +45,7 @@
 
 - name: enable service
   shell: |
-    systemctl enable ntpd
+    systemctl --force enable ntpd
   args:
     warn: false
   register: systemctl_enable_result
