@@ -14,17 +14,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-- name: apt-get update
-  apt:
-    update_cache: "yes"
-  changed_when: false
-  tags: ntp
-
-- name: apt-get install
-  apt:
+- name: yum install
+  yum:
     name: "{{ item.name }}"
     state: "{{ item.state }}"
-  with_items: "{{ _apt }}"
+  with_items: "{{ _yum }}"
   tags: ntp
 
 - name: prepare files
@@ -36,7 +30,6 @@
     state: "{{ item.state }}"
   with_items:
     - { dest: "{{ ntp_statsdir }}", owner: "ntp", group: "ntp", mode: "0755", state: "directory" }
-    - { dest: "/run/lock", owner: "root", group: "root", mode: "1777", state: "directory" }
   tags: ntp
 
 - name: copy templates
@@ -52,9 +45,9 @@
 
 - name: enable service
   shell: |
-    systemctl --force enable ntp
+    chkconfig ntpd on
   args:
     warn: false
-  register: systemctl_enable_result
-  changed_when: systemctl_enable_result.rc != 0
+  register: chkconfig_on_result
+  changed_when: chkconfig_on_result.rc != 0
   tags: ntp
