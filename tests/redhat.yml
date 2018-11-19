@@ -1,0 +1,9 @@
+---
+
+- name: start service
+  shell: |
+    service ntpd start
+  args:
+    warn: false
+  register: service_start_result
+  changed_when: service_start_result.rc != 0
