@@ -45,6 +45,8 @@
 
 - name: enable service
   command: chkconfig ntpd on
+  args:
+    warn: false
   register: chkconfig_on_result
   changed_when: chkconfig_on_result.rc != 0
   tags: ntp

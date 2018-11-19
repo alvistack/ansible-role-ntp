@@ -45,6 +45,8 @@
 
 - name: enable service
   command: systemctl --force enable ntpd
+  args:
+    warn: false
   register: systemctl_enable_result
   changed_when: systemctl_enable_result.rc != 0
   tags: ntp
