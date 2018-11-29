@@ -45,9 +45,7 @@
   tags: ntp
 
 - name: enable service
-  command: systemctl --force enable ntp
-  args:
-    warn: false
-  register: systemctl_enable_result
-  changed_when: systemctl_enable_result.rc != 0
+  service:
+    name: ntp
+    enabled: yes
   tags: ntp
