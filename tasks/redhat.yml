@@ -47,4 +47,5 @@
   service:
     name: ntpd
     enabled: yes
+  changed_when: false
   tags: ntp
