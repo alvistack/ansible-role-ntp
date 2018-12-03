@@ -21,6 +21,18 @@
   with_items: "{{ _yum }}"
   tags: ntp
 
+- name: prepare directories
+  file:
+    dest: "{{ item.dest }}"
+    owner: "{{ item.owner | default('root') }}"
+    group: "{{ item.group | default('root') }}"
+    mode: "{{ item.mode | default('0755') }}"
+    state: "{{ item.state | default('directories') }}"
+  with_items:
+    - { dest: "{{ ntp_statsdir }}", owner: "ntp", group: "ntp" }
+    - { dest: "/run/lock", mode: "1777" }
+  tags: ntp
+
 - name: copy templates
   template:
     src: "./templates{{ item.dest }}.j2"
@@ -30,17 +42,6 @@
     mode: "{{ item.mode | default('0644') }}"
   with_items:
     - { dest: "/etc/ntp.conf" }
-  tags: ntp
-
-- name: prepare files
-  file:
-    dest: "{{ item.dest }}"
-    owner: "{{ item.owner | default('root') }}"
-    group: "{{ item.group | default('root') }}"
-    mode: "{{ item.mode | default('0644') }}"
-    state: "{{ item.state | default('file') }}"
-  with_items:
-    - { dest: "{{ ntp_statsdir }}", owner: "ntp", group: "ntp", mode: "0755", state: "directory" }
   tags: ntp
 
 - name: enable service
