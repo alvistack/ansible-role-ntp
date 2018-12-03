@@ -27,7 +27,7 @@
     owner: "{{ item.owner | default('root') }}"
     group: "{{ item.group | default('root') }}"
     mode: "{{ item.mode | default('0755') }}"
-    state: "{{ item.state | default('directories') }}"
+    state: "{{ item.state | default('directory') }}"
   with_items:
     - { dest: "{{ ntp_statsdir }}", owner: "ntp", group: "ntp" }
     - { dest: "/run/lock", mode: "1777" }
