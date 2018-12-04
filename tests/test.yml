@@ -48,5 +48,5 @@
 
     - name: ntpq -p
       command: ntpq -p
-      register: ntpq_result
-      changed_when: ntpq_result.rc != 0
+      register: result
+      changed_when: result is not succeeded
