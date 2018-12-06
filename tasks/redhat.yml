@@ -51,4 +51,5 @@
     name: ntpd
     enabled: yes
   changed_when: false
+  ignore_errors: yes
   tags: ntp
