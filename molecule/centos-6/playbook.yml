@@ -14,14 +14,22 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-- name: python
-  src: https://github.com/alvistack/ansible-role-python
-  version: develop
+- hosts: all
+  remote_user: root
+  roles:
+    - role: ntp
 
-- name: apt
-  src: https://github.com/alvistack/ansible-role-apt
-  version: develop
+- hosts: all
+  remote_user: root
+  tasks:
+    - name: start service
+      service:
+        name: ntpd
+        state: started
+      changed_when: false
+      ignore_errors: true
 
-- name: yum
-  src: https://github.com/alvistack/ansible-role-yum
-  version: develop
+    - name: ntpq -p
+      command: ntpq -p
+      register: result
+      changed_when: result is not succeeded
