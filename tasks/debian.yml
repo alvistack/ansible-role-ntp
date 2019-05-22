@@ -44,6 +44,12 @@
     mode: "{{ item.mode | default('0644') }}"
   with_items:
     - { dest: "/etc/ntp.conf" }
+  notify:
+    - ntp | systemctl restart ntp
+  tags: ntp
+
+- name: flush handlers
+  meta: flush_handlers
   tags: ntp
 
 - name: enable service

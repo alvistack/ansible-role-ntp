@@ -13,3 +13,25 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+
+- name: ntp | systemctl restart ntp
+  systemd:
+    name: "{{ item.name }}"
+    state: restarted
+  with_items:
+    - { name: "ntp" }
+  when:
+    - ansible_service_mgr == 'systemd'
+  changed_when: false
+  ignore_errors: true
+
+- name: ntp | systemctl restart ntpd
+  systemd:
+    name: "{{ item.name }}"
+    state: restarted
+  with_items:
+    - { name: "ntpd" }
+  when:
+    - ansible_service_mgr == 'systemd'
+  changed_when: false
+  ignore_errors: true
