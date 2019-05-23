@@ -24,7 +24,7 @@
   tasks:
     - name: start service
       service:
-        name: ntp
+        name: "{{ ntp_service }}"
         state: started
       changed_when: false
       ignore_errors: true

@@ -14,6 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# Service name for ntp
+ntp_service: "{{ _ntp_service }}"
+
 # This command specifies the complete path and name of the file used to record
 # the frequency of the local clock oscillator.
 ntp_driftfile: "{{ _ntp_driftfile }}"
