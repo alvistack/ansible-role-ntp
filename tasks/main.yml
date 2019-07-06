@@ -55,7 +55,7 @@
     group: "{{ item.group | default('root') }}"
     mode: "{{ item.mode | default('0755') }}"
     state: "{{ item.state | default('directory') }}"
-  with_items:
+  loop:
     - { dest: "{{ ntp_statsdir }}", owner: "ntp", group: "ntp" }
     - { dest: "/run/lock", mode: "1777" }
   tags: ntp
@@ -67,7 +67,7 @@
     owner: "{{ item.owner | default('root') }}"
     group: "{{ item.group | default('root') }}"
     mode: "{{ item.mode | default('0644') }}"
-  with_items:
+  loop:
     - { dest: "/etc/ntp.conf" }
   notify:
     - ntp | systemctl restart
@@ -81,7 +81,7 @@
   service:
     name: "{{ item.name }}"
     enabled: true
-  with_items:
+  loop:
     - { name: "{{ ntp_service }}" }
   changed_when: false
   ignore_errors: true
