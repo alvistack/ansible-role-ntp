@@ -70,7 +70,7 @@
   loop:
     - { dest: "/etc/ntp.conf" }
   notify:
-    - ntp | systemctl restart
+    - ntp | systemctl restart ntp
   tags: ntp
 
 - name: flush handlers
