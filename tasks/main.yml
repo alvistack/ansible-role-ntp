@@ -70,7 +70,7 @@
   loop:
     - { dest: "/etc/ntp.conf" }
   notify:
-    - ntp | systemctl restart ntp
+    - ntp | systemctl restart
   tags: ntp
 
 - name: flush handlers
@@ -79,10 +79,8 @@
 
 - name: enable service
   service:
-    name: "{{ item.name }}"
+    name: "{{ ntp_service }}"
     enabled: true
-  loop:
-    - { name: "{{ ntp_service }}" }
   changed_when: false
   ignore_errors: true
   tags: ntp
