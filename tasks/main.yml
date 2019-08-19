@@ -79,10 +79,8 @@
 
 - name: enable service
   service:
-    name: "{{ item.name }}"
+    name: "{{ ntp_service }}"
     enabled: true
-  loop:
-    - { name: "{{ ntp_service }}" }
   changed_when: false
   ignore_errors: true
   tags: ntp

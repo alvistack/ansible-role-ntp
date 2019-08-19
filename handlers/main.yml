@@ -16,9 +16,10 @@
 
 - name: ntp | systemctl restart
   service:
-    name: "{{ item.name }}"
-    state: restarted
-  loop:
-    - { name: "{{ ntp_service }}" }
+    name: "{{ ntp_service }}"
+    state: "restarted"
+  loop: "{{ ansible_play_hosts }}"
+  delegate_to: "{{ item }}"
+  run_once: true
   changed_when: false
   ignore_errors: true
