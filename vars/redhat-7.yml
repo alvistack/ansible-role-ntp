@@ -18,6 +18,7 @@ _yum: [
   { state: "latest", name: "ntp" },
 ]
 
+_ntp_service: "ntpd"
 _ntp_driftfile: "/var/lib/ntp/drift"
 _ntp_configuration_commands: [
   "server 0.rhel.pool.ntp.org iburst",
