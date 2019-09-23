@@ -73,14 +73,14 @@
     - ntp | systemctl restart
   tags: ntp
 
-- name: flush handlers
-  meta: flush_handlers
-  tags: ntp
-
 - name: enable service
   service:
     name: "{{ ntp_service }}"
     enabled: true
   changed_when: false
   ignore_errors: true
+  tags: ntp
+
+- name: flush handlers
+  meta: flush_handlers
   tags: ntp
