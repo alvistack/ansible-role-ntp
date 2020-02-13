@@ -17,7 +17,10 @@
 - hosts: all
   remote_user: root
   become: true
-  tasks:
+  roles:
+    - role: ntp
+
+  post_tasks:
     - name: start service
       service:
         name: "{{ ntp_service }}"
