@@ -14,8 +14,23 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-- hosts: all
-  remote_user: root
-  become: true
-  roles:
-    - role: ntp
+_apt:
+  - { state: "latest", name: "ntp" }
+
+_ntp_service: "ntp"
+
+_ntp_driftfile: "/var/lib/ntp/ntp.drift"
+
+_ntp_configuration_commands:
+  - "pool 0.ubuntu.pool.ntp.org iburst"
+  - "pool 1.ubuntu.pool.ntp.org iburst"
+  - "pool 2.ubuntu.pool.ntp.org iburst"
+  - "pool 3.ubuntu.pool.ntp.org iburst"
+  - "pool ntp.ubuntu.com"
+
+_ntp_access_control_commands:
+  - "restrict -4 default kod notrap nomodify nopeer noquery limited"
+  - "restrict -6 default kod notrap nomodify nopeer noquery limited"
+  - "restrict 127.0.0.1"
+  - "restrict ::1"
+  - "restrict source notrap nomodify noquery"

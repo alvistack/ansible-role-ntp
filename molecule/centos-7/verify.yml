@@ -17,5 +17,8 @@
 - hosts: all
   remote_user: root
   become: true
-  roles:
-    - role: ntp
+  tasks:
+    - name: ntpq -p
+      command: ntpq -p
+      register: result
+      changed_when: result is not succeeded
