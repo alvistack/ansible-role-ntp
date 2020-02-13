@@ -19,19 +19,3 @@
   become: true
   roles:
     - role: ntp
-
-- hosts: all
-  remote_user: root
-  become: true
-  tasks:
-    - name: start service
-      service:
-        name: "{{ ntp_service }}"
-        state: "started"
-      changed_when: false
-      ignore_errors: true
-
-    - name: ntpq -p
-      command: ntpq -p
-      register: result
-      changed_when: result is not succeeded
