@@ -77,7 +77,7 @@
   meta: flush_handlers
   tags: ntp
 
-- name: enable service
+- name: start service
   service:
     name: "{{ ntp_service }}"
     state: "started"

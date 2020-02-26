@@ -14,9 +14,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-_apt:
-  - { state: "latest", name: "ntp" }
-
 _ntp_service: "ntp"
 
 _ntp_driftfile: "/var/lib/ntp/ntp.drift"
@@ -34,3 +31,6 @@ _ntp_access_control_commands:
   - "restrict 127.0.0.1"
   - "restrict ::1"
   - "restrict source notrap nomodify noquery"
+
+_apt:
+  - { state: "latest", name: "ntp" }
