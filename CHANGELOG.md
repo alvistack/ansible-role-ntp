@@ -1,9 +1,10 @@
 # Ansible Role for NTP
 
-## 4.3.0 - TBC
+## 4.2.7 - 2020-04-01
 
 ### Major Changes
 
+  - [DEPRECATED] No CentOS 8 support, use chrony instead
   - Upgrade minimal Molecule support to 3.0.2
   - Migrate role name to lowercase or underline
   - Migrate group name to lowercase or underline

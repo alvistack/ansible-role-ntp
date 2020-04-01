@@ -5,6 +5,8 @@
 [![GitHub license](https://img.shields.io/github/license/alvistack/ansible-role-ntp.svg)](https://github.com/alvistack/ansible-role-ntp/blob/master/LICENSE)
 [![Ansible Role](https://img.shields.io/badge/galaxy-alvistack.ntp-blue.svg)](https://galaxy.ansible.com/alvistack/ntp)
 
+**[DEPRECATED] No CentOS 8 support, use chrony instead.**
+
 Ansible Role for NTP Management.
 
 ## Requirements
